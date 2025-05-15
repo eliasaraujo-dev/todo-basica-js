@@ -134,64 +134,7 @@
         <li>Organizar o escritório</li>
     </ul>
 
-    <script>
-        // Obtém a lista de tarefas
-        const taskList = document.getElementById('myUL');
-        // Obtém o input de nova tarefa
-        const newTaskInput = document.getElementById('myInput');
-        // Obtém todos os botões de fechar existentes
-        let closeButtons = document.getElementsByClassName('close');
-
-        // Função para criar um botão de fechar
-        function createCloseButton() {
-            const span = document.createElement('span');
-            const txt = document.createTextNode('\u00D7');
-            span.className = 'close';
-            span.appendChild(txt);
-            span.onclick = removeTask; // Adiciona o evento de remover tarefa
-            return span;
-        }
-
-        // Adiciona um botão de fechar a cada item da lista existente
-        function addCloseButtonsToExistingTasks() {
-            const listItems = taskList.getElementsByTagName('li');
-            for (let i = 0; i < listItems.length; i++) {
-                listItems[i].appendChild(createCloseButton());
-            }
-        }
-
-        // Função para remover uma tarefa
-        function removeTask() {
-            const listItem = this.parentElement;
-            listItem.style.display = 'none';
-        }
-
-        // Adiciona a funcionalidade de marcar/desmarcar tarefa ao clicar no item da lista
-        taskList.addEventListener('click', function(event) {
-            if (event.target.tagName === 'LI') {
-                event.target.classList.toggle('checked');
-            }
-        });
-
-        // Função para adicionar um novo item à lista
-        function newElement() {
-            const inputValue = newTaskInput.value.trim();
-            if (inputValue === '') {
-                alert('Você precisa escrever algo!');
-                return;
-            }
-
-            const newListItem = document.createElement('li');
-            const taskText = document.createTextNode(inputValue);
-            newListItem.appendChild(taskText);
-            newListItem.appendChild(createCloseButton()); // Adiciona o botão de fechar ao novo item
-            taskList.appendChild(newListItem);
-            newTaskInput.value = ''; // Limpa o input após adicionar a tarefa
-        }
-
-        // Inicializa adicionando botões de fechar aos itens existentes
-        addCloseButtonsToExistingTasks();
-    </script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
